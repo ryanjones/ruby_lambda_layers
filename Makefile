@@ -6,16 +6,16 @@ aws_package:
 	--output-template-file './cloudformation-output.yaml'
 
 aws_deploy: 
-	make aws_s3_sync && \
 	aws cloudformation deploy \
 	--template-file './cloudformation-output.yaml' \
 	--capabilities 'CAPABILITY_NAMED_IAM' \
 	--stack-name ruby-lambda-layers
 
 aws_launch:
+	bundle install --path layer/ && \
+	make aws_s3_sync && \
 	make aws_package && \
-	make aws_deploy && \
-	make aws_s3_sync
+	make aws_deploy 
 
 aws_destroy_stack:
 	aws cloudformation delete-stack --stack-name ruby-lambda-layers
