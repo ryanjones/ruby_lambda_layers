@@ -1,7 +1,7 @@
 
 aws_package:
 	aws cloudformation package \
-	--template-file './cloudformation.yaml' \
+	--template-file './template.yaml' \
 	--s3-bucket ruby-deploy \
 	--output-template-file './cloudformation-output.yaml'
 
