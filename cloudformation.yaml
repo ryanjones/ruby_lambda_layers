@@ -1,0 +1,28 @@
+
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: 'AWS::Serverless-2016-10-31'
+Resources:
+  MyFunction:
+    Type: 'AWS::Serverless::Function'
+    Properties:
+      Handler: handler.hello
+      Runtime: ruby2.5
+      CodeUri: 's3://ruby-deploy/lambda.zip'
+      Events:
+        GetResource:
+          Type: Api
+          Properties:
+            Path: /hello
+            Method: get
+      Layers:
+        - !Ref MyLayer
+  MyLayer:
+    Type: 'AWS::Serverless::LayerVersion'
+    Properties:
+      LayerName: MyLayer
+      Description: ruby awesome print
+      ContentUri: 's3://ruby-deploy/layer.zip'
+      CompatibleRuntimes:
+        - ruby2.5
+      LicenseInfo: 'Available under the MIT-0 license.'
+      RetentionPolicy: Retain
