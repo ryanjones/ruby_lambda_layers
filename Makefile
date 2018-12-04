@@ -21,8 +21,7 @@ aws_destroy_stack:
 	aws cloudformation delete-stack --stack-name ruby-lambda-layers
 
 aws_s3_sync:
-	rm dist/lambda.zip || true && \
-	rm dist/layer.zip || true && \
-	zip -jrX "dist/lambda.zip" lambda && \
-	zip -rX "dist/layer.zip" layer && \
+	rm dist/layer1.zip || true && \
+	cd layer; zip -r ../layer/layer1.zip *; cd .. && \
+	mv layer/layer1.zip dist && \
 	aws s3 sync './dist' "s3://ruby-deploy" --acl 'public-read'
