@@ -1,2 +1,3 @@
 ---
 BUNDLE_PATH: "layer/"
+BUNDLE_FROZEN: "true"

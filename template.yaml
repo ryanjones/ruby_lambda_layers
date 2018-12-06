@@ -21,7 +21,7 @@ Resources:
     Properties:
       LayerName: MyLayer
       Description: ruby awesome print
-      ContentUri: 's3://ruby-deploy/layer1.zip'
+      ContentUri: 's3://ruby-deploy/layer6.zip'
       CompatibleRuntimes:
         - ruby2.5
       LicenseInfo: 'Available under the MIT-0 license.'

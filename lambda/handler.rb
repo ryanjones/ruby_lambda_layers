@@ -1,8 +1,7 @@
-require 'awesome_print'
+require 'ap'
 
-#wafflesabc
 def hello(event:, context:)
-    ap event
+    ap 'test'
     ap 'test1'
-    { "statusCode": 200, "body": "hello" }
+    { "statusCode": 200, "body": "i am a body" }
 end
