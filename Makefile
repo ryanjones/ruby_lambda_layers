@@ -20,11 +20,12 @@ aws_destroy_stack:
 	aws cloudformation delete-stack --stack-name ruby-lambda-layers
 
 aws_s3_sync:
+	rm -rf layer/ruby && \
 	bundle install --path layer/ --deployment && \
-	rm dist/layer6.zip || true && \
+	rm -rf dist/* || true && \
 	mkdir -p layer/ruby/gems/2.5.0 && \
 	mv layer/ruby/2.5.0/gems/* layer/ruby/gems/2.5.0 || true && \
 	rm -rf layer/ruby/2.5.0 && \
-	cd layer; zip -r ../layer/layer6.zip *; cd .. && \
-	mv layer/layer6.zip dist || true && \
+	cd layer; zip -r ../layer/layer8.zip *; cd .. && \
+	mv layer/layer8.zip dist || true && \
 	aws s3 sync './dist' "s3://ruby-deploy" --acl 'public-read'

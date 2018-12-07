@@ -1,8 +1,15 @@
-require 'ap'
+load_paths = Dir["/opt/ruby/gems/2.5.0/**/lib"]
+$LOAD_PATH.unshift(*load_paths)
+
+require 'rest-client'
+require 'json'
 
 def hello(event:, context:)
-    ap 'test'
-    # ap throwing exception due to some other issue
-    ap 'test1'
-    { "statusCode": 200, "body": "i am a body" }
+  response = RestClient.get "https://jsonplaceholder.typicode.com/todos/#{1 + rand(50)}"
+  payload = JSON.parse response.body
+  
+  {   
+    "id": payload["id"],
+    "title": payload["title"]
+  }
 end
