@@ -26,6 +26,6 @@ aws_s3_sync:
 	mkdir -p layer/ruby/gems/2.5.0 && \
 	mv layer/ruby/2.5.0/gems/* layer/ruby/gems/2.5.0 || true && \
 	rm -rf layer/ruby/2.5.0 && \
-	cd layer; zip -r ../layer/layer8.zip *; cd .. && \
-	mv layer/layer8.zip dist || true && \
+	cd layer; zip -r0 layer9.zip .; cd .. && \
+	mv layer/layer9.zip dist || true && \
 	aws s3 sync './dist' "s3://ruby-deploy" --acl 'public-read'
