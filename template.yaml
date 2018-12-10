@@ -8,6 +8,7 @@ Resources:
       Handler: handler.hello
       Runtime: ruby2.5
       CodeUri: ./lambda
+      Timeout: 15
       Events:
         GetResource:
           Type: Api
@@ -21,7 +22,7 @@ Resources:
     Properties:
       LayerName: MyLayer
       Description: ruby awesome print
-      ContentUri: 's3://ruby-deploy/layer9.zip'
+      ContentUri: 's3://ruby-deploy/layer12.zip'
       CompatibleRuntimes:
         - ruby2.5
       LicenseInfo: 'Available under the MIT-0 license.'

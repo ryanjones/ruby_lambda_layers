@@ -3,7 +3,7 @@ $LOAD_PATH.unshift(*load_paths)
 
 require 'rest-client'
 require 'json'
-require 'christmas'
+require 'christmas' # loaded through /opt/ruby/lib
 
 def hello(event:, context:)
   response = RestClient.get "https://jsonplaceholder.typicode.com/todos/#{1 + rand(50)}"

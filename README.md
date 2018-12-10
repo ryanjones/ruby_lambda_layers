@@ -2,6 +2,10 @@
 
 Working POC for for loading in gems from an AWS Lambda Layer into an AWS Lambda w/ Ruby runtime.
 
+## Installation
+1. ```Update S3 bucket in template.yaml (ruby-deploy)```
+2. ```make aws_launch```
+
 ### Documentation
 
 - https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html#configuration-layers-using
