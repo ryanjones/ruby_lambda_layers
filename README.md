@@ -1,6 +1,6 @@
-# AWS Lambda Layers
+# AWS Lambda Layers (Ruby)
 
-Working POC for loading in libraries from a lambda layer
+Working POC for for loading in gems from an AWS Lambda Layer into an AWS Lambda w/ Ruby runtime.
 
 ### Documentation
 
